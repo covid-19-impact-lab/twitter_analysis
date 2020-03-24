@@ -2,12 +2,13 @@
 
 
 def build(ctx):
-    ctx.recurse("library")
-    ctx.recurse("data_management")
-    ctx.recurse("analysis")
+    # ctx.recurse("library")
+    ctx.recurse("data_management")  # data cleaning and pre-processing
+    ctx.recurse("analysis")  # model training
     ctx.recurse("final")
+
     # Safety measure -- else the LaTeX scanner might fail because some
     # '.tex'-source file has not been generated.
-    ctx.add_group()
-    ctx.recurse("paper")
-    ctx.recurse("documentation")
+    # ctx.add_group()
+    # ctx.recurse("paper")
+    # ctx.recurse("documentation")
