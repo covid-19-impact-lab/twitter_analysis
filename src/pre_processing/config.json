@@ -1,0 +1,6 @@
+{
+  "_comment": "Example config for pre-processing",
+  "remove_url": true,
+  "remove_hashtags": true,
+  "remove_emoticons": true
+}

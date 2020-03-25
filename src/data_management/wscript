@@ -3,10 +3,10 @@
 
 def build(ctx):
 
-    # Illustrate simple use of run_py_script
     ctx(
         features="run_py_script",
-        source="get_simulation_draws.py",
-        target=ctx.path_to(ctx, "OUT_DATA", "initial_locations.csv"),
-        name="get_simulation_draws",
+        source="cleaning.py",
+        deps=ctx.path_to(ctx, "IN_DATA", "training_data/data.tsv"),
+        target=ctx.path_to(ctx, "OUT_DATA", "data_clean.csv"),
+        name="cleaning",
     )

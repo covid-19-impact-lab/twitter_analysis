@@ -1,3 +1,14 @@
+# project specific gitignore:
+
+src/original_data/
+src/pre_processing/text-preprocessing-techniques/
+
+literature/*.pdf
+resources/
+
+
+# gitignore from waf:
+
 *-blx.bib
 *.asv
 *.aux
