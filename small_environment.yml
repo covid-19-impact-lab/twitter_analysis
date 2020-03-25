@@ -2,8 +2,6 @@ name: twitter_analysis
 channels:
   - conda-forge
   - defaults
-  - pytorch
-  - gwerbin
 
 dependencies:
   - ipykernel=5.1.3
@@ -22,20 +20,20 @@ dependencies:
   - nb_conda_kernels=2.2.2
 
   - nltk
-  - spacy
-  - pytorch
-  - torchtext
-  - tensorboard
-  - tensorboardx
-  - seqeval
-  - psutil
-  - pyarrow
-  - tqdm
+    #  - spacy
+    #  - pytorch
+    #  - torchtext
+    #  - tensorboard
+    #  - tensorboardx
+    #  - seqeval
+    #  - psutil
+    #  - pyarrow
+    #  - tqdm
 
   - git
   - gitpython
   - pip:
-    - git+https://github.com/huggingface/transformers.git
+    # - git+https://github.com/huggingface/transformers.git
     - tweet-preprocessor
 
     - click==7.0
