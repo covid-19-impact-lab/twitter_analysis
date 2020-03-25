@@ -1,5 +1,9 @@
 # Sentiment Analysis of (german) Twitter data using natural language processing
 
+## TODO
+
+- [ ] Have a small environment for computation on server?
+
 ## Install
 
 To install the project execute the following commands in a terminal.
