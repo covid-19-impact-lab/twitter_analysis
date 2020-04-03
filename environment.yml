@@ -32,11 +32,18 @@ dependencies:
   - pyarrow
   - tqdm
 
+  - google-cloud-language
+  - requests
+
   - git
   - gitpython
   - pip:
     - git+https://github.com/huggingface/transformers.git
     - tweet-preprocessor
+    - textblob
+    - vaderSentiment
+    - stanfordnlp
+    - stanfordcorenlp
 
     - click==7.0
 

@@ -6,6 +6,7 @@ src/pre_processing/text-preprocessing-techniques/
 
 literature/*.pdf
 resources/
+src/keys/
 
 
 # gitignore from waf:
