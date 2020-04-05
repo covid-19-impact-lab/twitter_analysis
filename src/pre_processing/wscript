@@ -6,9 +6,7 @@ def build(ctx):
     ctx(
         features="run_py_script",
         source="preprocessing.py",
-        deps=[
-            ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
-        ],
+        deps=[ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),],
         target=[
             ctx.path_to(ctx, "OUT_DATA", "data_processed.pkl"),
             ctx.path_to(ctx, "OUT_DATA", "data_processed_train.json"),

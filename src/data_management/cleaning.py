@@ -1,7 +1,8 @@
-import pyarrow.parquet as pq
 from pathlib import Path
-import pandas as pd
+
 import numpy as np
+import pandas as pd
+import pyarrow.parquet as pq
 
 from bld.project_paths import project_paths_join as ppj
 
