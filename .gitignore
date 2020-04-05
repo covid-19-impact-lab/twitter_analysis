@@ -8,6 +8,7 @@ literature/*.pdf
 resources/
 src/keys/
 
+.secrets.yaml
 
 # gitignore from waf:
 

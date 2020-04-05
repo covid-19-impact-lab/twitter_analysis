@@ -6,8 +6,8 @@ def build(ctx):
     ctx.recurse("data_management")  # basic data cleaning
     ctx.recurse("pre_processing")  # pre-processing
 
-    #ctx.recurse("model_train")  # model training
-    #ctx.recurse("model_eval")  # model evaluation on new data
+    # ctx.recurse("model_train")  # model training
+    # ctx.recurse("model_eval")  # model evaluation on new data
 
     # ctx.recurse("final")  # analyze of model evaluation results
 

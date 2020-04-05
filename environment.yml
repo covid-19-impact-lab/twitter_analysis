@@ -37,6 +37,21 @@ dependencies:
 
   - git
   - gitpython
+
+  - sphinx==2.2.0
+  - sphinx-autobuild==0.7.1
+  - sphinx_rtd_theme==0.4.3
+  - sphinxcontrib-bibtex==1.0.0
+
+  - click==7.0
+
+  - pre-commit==1.18.3
+
+  - matplotlib==3.1.1
+  - nbsphinx==0.4.2
+  - pytest==5.2.0
+  - pytest-cov==2.7.1
+
   - pip:
     - git+https://github.com/huggingface/transformers.git
     - tweet-preprocessor
@@ -44,18 +59,3 @@ dependencies:
     - vaderSentiment
     - stanfordnlp
     - stanfordcorenlp
-
-    - click==7.0
-
-    - pre-commit==1.18.3
-
-    - matplotlib==3.1.1
-    - nbsphinx==0.4.2
-    - pytest==5.2.0
-    - pytest-cov==2.7.1
-    - pytest-pythonpath==0.7.3
-
-    - sphinx==2.2.0
-    - sphinx-autobuild==0.7.1
-    - sphinx-rtd-theme==0.4.3
-    - sphinxcontrib-bibtex==1.0.0
