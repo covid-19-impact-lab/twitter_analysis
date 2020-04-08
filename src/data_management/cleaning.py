@@ -17,6 +17,11 @@ def load_data():
     for path in paths:
         table = pq.read_table(path)
         df = table.to_pandas()
+
+        # Add state and city from path.
+        df["state"] = path.parents[3].name
+        df["city"] = path.parents[2].name
+
         dfs.append(df)
 
     df = pd.concat(dfs, sort=False)

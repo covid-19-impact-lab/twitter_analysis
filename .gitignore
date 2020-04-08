@@ -9,6 +9,7 @@ resources/
 src/keys/
 src/original_data/
 
+.secrets.yaml
 
 # gitignore from waf:
 

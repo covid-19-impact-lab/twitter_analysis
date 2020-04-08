@@ -5,10 +5,6 @@ Sentiment Analysis of (german) Twitter data using natural language processing
 [![MIT License][license-badge]][license-url]
 [![Black Code Style][black-badge]][black-url]
 
-## TODO
-
-- [ ] Have a small environment for computation on server?
-
 # Project Goal
 
 We want to classify tweets related to the corona crisis with the usual labels "positive", "negative" and "neutral".
@@ -31,7 +27,6 @@ git clone https://github.com/timmens/twitter_analysis.git
 conda env create -f environment.yml
 conda activate twitter_analysis
 
-python -m spacy download en_core_web_sm
 python -m spacy download de_core_news_sm
 
 pre-commit install
@@ -53,6 +48,11 @@ conda activate twitter_analysis
 ```
 instead of the two conda commands above.
 
+## Entrypoints for engagement / Enhancements
+
+- Improve language detection: Go through the tweets which are categorized as neither
+  English nor German. If they are wrongly classified, inspect what needs to change to
+  categorize them correctly.
 
 ### Resources
 
