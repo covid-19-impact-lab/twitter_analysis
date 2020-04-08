@@ -1,11 +1,10 @@
-from bld.project_paths import project_paths_join as ppj
-from src.pre_processing.preprocessors import (
-    replace_urls,
-    replace_mentions,
-    remove_link_only_tweets,
-    replace_hashtags,
-)
 import pandas as pd
+
+from bld.project_paths import project_paths_join as ppj
+from src.pre_processing.preprocessors import remove_link_only_tweets
+from src.pre_processing.preprocessors import replace_hashtags
+from src.pre_processing.preprocessors import replace_mentions
+from src.pre_processing.preprocessors import replace_urls
 
 
 def main():
@@ -15,6 +14,7 @@ def main():
 
     1. The tweet must be in English or German.
     2. The tweet should contain at least 50 characters.
+    3. The tweet should not respond to someone.
 
     We do the following before we select the tweets.
 
@@ -43,6 +43,7 @@ def main():
     # Select with index.
     at_least_90_sure_de = sc.query("de >= 0.9").index
     de = df.loc[at_least_90_sure_de.intersection(df.index)]
+    de = de.loc[de.to.isna()]
 
     # To save space.
     de = de[["original_text", "permalink"]].sample(n=1_000, random_state=0)
@@ -52,6 +53,7 @@ def main():
     # Select with index.
     at_least_90_sure_en = sc.query("en >= 0.9").index
     en = df.loc[at_least_90_sure_en.intersection(df.index)]
+    en = en.loc[en.to.isna()]
 
     # To save space.
     en = en[["original_text", "permalink"]].sample(n=1_000, random_state=0)

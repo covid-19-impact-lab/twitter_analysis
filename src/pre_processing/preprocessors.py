@@ -1,7 +1,7 @@
-import spacy
-import spacy_cld
 import numpy as np
 import pandas as pd
+import spacy
+import spacy_cld
 
 
 URL_REGEX = (

@@ -22,7 +22,10 @@ def build(ctx):
     ctx(
         features="run_py_script",
         source="select_tweets_for_labeling.py",
-        deps=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
+        deps=[
+            ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
+            ctx.path_to(ctx, "OUT_DATA", "detected_languages.pkl"),
+        ],
         target=[
             ctx.path_to(ctx, "OUT_DATA", "selected_tweets_for_labeling_de.csv"),
             ctx.path_to(ctx, "OUT_DATA", "selected_tweets_for_labeling_en.csv"),
