@@ -1,5 +1,6 @@
 # project specific gitignore:
 
+src/original_data/
 src/original_data/corona_data/test_data.csv
 src/original_data/training_data/data.tsv
 src/pre_processing/text-preprocessing-techniques/
