@@ -24,9 +24,20 @@ For the model we will focus on using architectures from [Hugging Face](https://h
 For the fine-tuning of these models we worked on building our own labeled data set.
 This data set contains tweets related to the Corona crisis in Germany, and has been labeled according to the scales above.
 
+## Entrypoints for engagement / Enhancements
+
+- Improve language detection: Go through the tweets which are categorized as neither
+  English nor German. If they are wrongly classified, inspect what needs to change to
+  categorize them correctly.
+
+## Literature and Resources
+
+Literature and other resources that we are using can be found in ``src/literature``. 
+
 ## Install
 
 To install the project execute the following commands in a terminal.
+If you wish to contribute make sure to run the command ``pre-commit install``, otherwise this can be skipped.
 (Note that the conda environment is very large as we are using libraries such as ``pytorch``.
 This can lead to long waiting times for the environment creation.
 If you want to avoid this follow the steps in ``small environment``.)
@@ -57,17 +68,6 @@ conda env create -f small_environment.yml
 conda activate twitter_analysis
 ```
 instead of the two conda commands above.
-
-## Entrypoints for engagement / Enhancements
-
-- Improve language detection: Go through the tweets which are categorized as neither
-  English nor German. If they are wrongly classified, inspect what needs to change to
-  categorize them correctly.
-
-## Literature and Resources
-
-Literature and other resources that we are using can be found in ``src/literature``. 
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
