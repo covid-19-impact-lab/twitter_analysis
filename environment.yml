@@ -1,4 +1,5 @@
 name: twitter_analysis
+
 channels:
   - conda-forge
   - defaults
@@ -6,31 +7,32 @@ channels:
   - gwerbin
 
 dependencies:
-  - ipykernel=5.1.3
+  - ipykernel
   - ipython
   - ipywidgets
-  - jupyterlab=1.1.4
-  - numpy=1.16
-  - pandas=0.25.1
-  - scipy=1.2.1
+  - jupyterlab
+  - numpy
+  - pandas
+  - pyarrow
+  - scipy
   - scikit-learn
 
-  - pip=19.2.3
+  - pip
   - python=3.7
-  - python-graphviz=0.8
+  - python-graphviz
 
-  - nb_conda_kernels=2.2.2
+  - nb_conda_kernels
 
   - nltk
-  - spacy
   - pytorch
   - torchtext
   - tensorboard
   - tensorboardx
   - seqeval
   - psutil
-  - pyarrow
   - tqdm
+  - spacy
+  - spacy-model-en_core_sm
 
   - google-cloud-language
   - requests
@@ -38,19 +40,18 @@ dependencies:
   - git
   - gitpython
 
-  - sphinx==2.2.0
-  - sphinx-autobuild==0.7.1
-  - sphinx_rtd_theme==0.4.3
-  - sphinxcontrib-bibtex==1.0.0
+  - sphinx
+  - sphinx-autobuild
+  - sphinx_rtd_theme
+  - sphinxcontrib-bibtex
 
-  - click==7.0
+  - pre-commit
 
-  - pre-commit==1.18.3
+  - matplotlib
+  - nbsphinx
 
-  - matplotlib==3.1.1
-  - nbsphinx==0.4.2
-  - pytest==5.2.0
-  - pytest-cov==2.7.1
+  - pytest
+  - pytest-cov
 
   - pip:
     - git+https://github.com/huggingface/transformers.git
@@ -59,3 +60,5 @@ dependencies:
     - vaderSentiment
     - stanfordnlp
     - stanfordcorenlp
+    - spacy_cld  # not win32 compatible
+    - spacymoji

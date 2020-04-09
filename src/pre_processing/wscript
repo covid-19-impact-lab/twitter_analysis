@@ -1,16 +1,34 @@
-#! python
-
-
 def build(ctx):
-
     ctx(
         features="run_py_script",
         source="preprocessing.py",
-        deps=[ctx.path_to(ctx, "OUT_DATA", "data_clean.csv")],
+        deps=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
         target=[
-            ctx.path_to(ctx, "OUT_DATA", "data_processed.tsv"),
+            ctx.path_to(ctx, "OUT_DATA", "data_processed.pkl"),
             ctx.path_to(ctx, "OUT_DATA", "data_processed_train.json"),
             ctx.path_to(ctx, "OUT_DATA", "data_processed_test.json"),
         ],
         name="preprocessing",
+    )
+
+    ctx(
+        features="run_py_script",
+        source="detect_language.py",
+        deps=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
+        target=ctx.path_to(ctx, "OUT_DATA", "detected_languages.pkl"),
+        name="detect_language",
+    )
+
+    ctx(
+        features="run_py_script",
+        source="select_tweets_for_labeling.py",
+        deps=[
+            ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
+            ctx.path_to(ctx, "OUT_DATA", "detected_languages.pkl"),
+        ],
+        target=[
+            ctx.path_to(ctx, "OUT_DATA", "selected_tweets_for_labeling_de.csv"),
+            ctx.path_to(ctx, "OUT_DATA", "selected_tweets_for_labeling_en.csv"),
+        ],
+        name="select_tweets_for_labeling",
     )
