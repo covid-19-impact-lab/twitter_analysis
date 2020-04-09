@@ -60,6 +60,5 @@ dependencies:
     - vaderSentiment
     - stanfordnlp
     - stanfordcorenlp
-
     - spacy_cld  # not win32 compatible
     - spacymoji
