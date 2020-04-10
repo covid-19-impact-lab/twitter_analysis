@@ -1,10 +1,9 @@
-import pandas as pd
-
 from bld.project_paths import project_paths_join as ppj
 from src.pre_processing.preprocessors import remove_link_only_tweets
 from src.pre_processing.preprocessors import replace_hashtags
 from src.pre_processing.preprocessors import replace_mentions
 from src.pre_processing.preprocessors import replace_urls
+from src.shared import read_parquet_in_date_chunks
 
 
 def main():
@@ -22,7 +21,7 @@ def main():
       corrected length of the tweet.
 
     """
-    df = pd.read_pickle(ppj("OUT_DATA", "data_clean.pkl"))
+    df = read_parquet_in_date_chunks(ppj("OUT_DATA", "tweets-cleaned"))
 
     df["original_text"] = df.text
 
@@ -37,27 +36,17 @@ def main():
     # Strip whitespace.
     df.text = df.text.str.strip()
 
-    sc = pd.read_pickle(ppj("OUT_DATA", "detected_languages.pkl"))
+    sc = read_parquet_in_date_chunks(ppj("OUT_DATA", "detected-languages"))
 
-    # Only keep tweets which are with at least 90% chance either English or German.
-    # Select with index.
-    at_least_90_sure_de = sc.query("de >= 0.9").index
-    de = df.loc[at_least_90_sure_de.intersection(df.index)]
-    de = de.loc[de.to.isna()]
-
-    # To save space.
-    de = de[["original_text", "permalink"]].sample(n=1_000, random_state=0)
-    de.to_csv(ppj("OUT_DATA", "selected_tweets_for_labeling_de.csv"))
-
-    # Only keep tweets which are with at least 90% chance either English or German.
-    # Select with index.
-    at_least_90_sure_en = sc.query("en >= 0.9").index
-    en = df.loc[at_least_90_sure_en.intersection(df.index)]
-    en = en.loc[en.to.isna()]
+    # Only keep tweets which are with at least 90% chance either English or German, and
+    # are not a responds to another tweet. Select with index.
+    at_least_90_sure = sc.query("de >= 0.9 or en >= 0.9").index
+    df = df.loc[at_least_90_sure.intersection(df.index)]
+    df = df.loc[df.to.isna()]
 
     # To save space.
-    en = en[["original_text", "permalink"]].sample(n=1_000, random_state=0)
-    en.to_csv(ppj("OUT_DATA", "selected_tweets_for_labeling_en.csv"))
+    df = df[["original_text", "permalink"]].sample(n=1_000, random_state=0)
+    df.to_csv(ppj("OUT_DATA", "selected_tweets_for_labeling.csv"))
 
 
 if __name__ == "__main__":
