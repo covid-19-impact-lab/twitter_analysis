@@ -1,15 +1,15 @@
 def build(ctx):
-    ctx(
-        features="run_py_script",
-        source="preprocessing.py",
-        deps=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
-        target=[
-            ctx.path_to(ctx, "OUT_DATA", "data_processed.pkl"),
-            ctx.path_to(ctx, "OUT_DATA", "data_processed_train.json"),
-            ctx.path_to(ctx, "OUT_DATA", "data_processed_test.json"),
-        ],
-        name="preprocessing",
-    )
+    #ctx(
+    #    features="run_py_script",
+    #    source="pre_process.py",
+    #    deps=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
+    #    target=[
+    #        ctx.path_to(ctx, "OUT_DATA", "data_processed.pkl"),
+    #        ctx.path_to(ctx, "OUT_DATA", "data_processed_train.json"),
+    #        ctx.path_to(ctx, "OUT_DATA", "data_processed_test.json"),
+    #    ],
+    #    name="pre_process",
+    #)
 
     ctx(
         features="run_py_script",
