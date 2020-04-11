@@ -33,7 +33,7 @@ dependencies:
   - psutil
   - tqdm
   - spacy
-  - spacy-model-en_core_sm
+  - spacy-model-en_core_web_sm
 
   - google-cloud-language
   - requests
