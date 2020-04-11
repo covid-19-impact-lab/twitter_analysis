@@ -1,4 +1,4 @@
-#! python
+from pathlib import Path
 
 
 def build(ctx):
@@ -6,7 +6,10 @@ def build(ctx):
     ctx(
         features="run_py_script",
         source="cleaning.py",
-        deps=ctx.path_to(ctx, "IN_DATA", "training_data/data.tsv"),
-        target=ctx.path_to(ctx, "OUT_DATA", "data_clean.csv"),
+        deps=[
+            ctx.path_to(ctx, "IN_DATA", path.relative_to(ctx.path_to(ctx, "IN_DATA")))
+            for path in Path("../original_data/corona_data").glob("**/*.parquet")
+        ],
+        target=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
         name="cleaning",
     )

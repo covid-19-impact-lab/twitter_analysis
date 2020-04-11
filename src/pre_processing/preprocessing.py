@@ -96,7 +96,7 @@ if __name__ == "__main__":
     config = json.load(open(ppj("PRE_PROCESS", "config.json")))
 
     # load cleaned data
-    df = pd.read_csv(ppj("OUT_DATA", "data_clean.csv"))
+    df = pd.read_pickle(ppj("OUT_DATA", "data_clean.pkl"))[["text"]]
 
     df_processed = preprocess_dataframe(df)
 
@@ -106,7 +106,7 @@ if __name__ == "__main__":
     )
 
     # save data
-    df_processed.to_csv(ppj("OUT_DATA", "data_processed.tsv"), sep="\t", index=False)
+    df_processed.to_pickle(ppj("OUT_DATA", "data_processed.pkl"))
     df_train.to_json(
         ppj("OUT_DATA", "data_processed_train.json"), "records", lines=True
     )
