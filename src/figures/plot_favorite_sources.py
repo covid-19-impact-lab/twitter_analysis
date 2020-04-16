@@ -1,11 +1,11 @@
 import matplotlib.pyplot as plt
-import pandas as pd
 
 from bld.project_paths import project_paths_join as ppj
+from src.shared import read_parquet_in_date_chunks
 
 
 def extract_sources():
-    df = pd.read_pickle(ppj("OUT_DATA", "data_clean.pkl"))
+    df = read_parquet_in_date_chunks(ppj("OUT_DATA", "tweets-cleaned"))
 
     sources = (
         df.urls.str.split("/", n=3, expand=True)[2]

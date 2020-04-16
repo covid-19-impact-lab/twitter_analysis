@@ -5,7 +5,7 @@ import pandas as pd
 import pyarrow.parquet as pq
 
 from bld.project_paths import project_paths_join as ppj
-
+from src.shared import to_parquet_in_date_chunks
 
 UNNECESSARY_COLUMNS = ["formatted_date", "geo"]
 
@@ -48,7 +48,7 @@ def main():
     df = load_data()
     df = minimal_preprocessing(df)
 
-    df.to_pickle(ppj("OUT_DATA", "data_clean.pkl"))
+    to_parquet_in_date_chunks(df, ppj("OUT_DATA", "tweets-cleaned"))
 
 
 if __name__ == "__main__":
