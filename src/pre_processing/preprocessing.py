@@ -3,7 +3,6 @@ import re
 import string
 
 import nltk
-import pandas as pd
 import preprocessor as p
 from nltk import word_tokenize
 from nltk.corpus import stopwords
@@ -11,6 +10,7 @@ from nltk.tokenize import RegexpTokenizer
 from sklearn.model_selection import train_test_split
 
 from bld.project_paths import project_paths_join as ppj
+from src.shared import read_parquet_in_date_chunks
 
 
 def preprocess_tweet(tweet):
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     config = json.load(open(ppj("PRE_PROCESS", "config.json")))
 
     # load cleaned data
-    df = pd.read_pickle(ppj("OUT_DATA", "data_clean.pkl"))[["text"]]
+    df = read_parquet_in_date_chunks(ppj("OUT_DATA", "tweets-cleaned"))[["text"]]
 
     df_processed = preprocess_dataframe(df)
 

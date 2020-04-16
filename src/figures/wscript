@@ -1,9 +1,15 @@
+from src.shared import TIMESTAMPS
+
+
 def build(ctx):
 
     ctx(
         features="run_py_script",
         source="plot_favorite_sources.py",
-        deps=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
+        deps=[
+            ctx.path_to(ctx, "OUT_DATA", "tweets-cleaned", f"{stamp}.parquet")
+            for stamp in TIMESTAMPS
+        ],
         target=ctx.path_to(ctx, "OUT_FIGURES", "fig-favorite-sources.png"),
         name="fig-favorite-sources",
     )
@@ -11,7 +17,10 @@ def build(ctx):
     ctx(
         features="run_py_script",
         source="plot_location_of_tweets.py",
-        deps=ctx.path_to(ctx, "OUT_DATA", "data_clean.pkl"),
+        deps=[
+            ctx.path_to(ctx, "OUT_DATA", "tweets-cleaned", f"{stamp}.parquet")
+            for stamp in TIMESTAMPS
+        ],
         target=[
             ctx.path_to(ctx, "OUT_FIGURES", "fig-location-cities.png"),
             ctx.path_to(ctx, "OUT_FIGURES", "fig-location-states.png"),
