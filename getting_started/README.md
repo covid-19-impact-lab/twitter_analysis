@@ -1,9 +1,9 @@
 # Getting started - Working with the Data
 
 To get a quick grasp of how our data looks like we included a small example notebook.
-Click [here]() to open the notebook on nbviewer and [here]() to open the notebook on mybinder.
+Click [here](https://nbviewer.jupyter.org/github/covid-19-impact-lab/twitter_analysis/blob/example_notebook/getting_started/twitter_analysis.ipynb) to open the notebook on nbviewer and [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/covid-19-impact-lab/twitter_analysis/blob/example_notebook/getting_started/twitter_analysis.ipynb/master) to open the notebook on mybinder.
 
-If you want to play around with the data locally you need to install [conda]() and run:
+If you want to play around with the data locally you need to install [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/) and run:
 
 ```
 conda env create -f environment.yml
