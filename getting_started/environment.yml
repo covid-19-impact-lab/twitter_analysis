@@ -1,0 +1,23 @@
+
+name: twitter_analysis_example
+
+channels:
+  - conda-forge
+
+dependencies:
+  - dask
+  - ipykernel
+  - ipython
+  - ipywidgets
+  - jupyterlab
+  - numpy
+  - pandas
+  - pyarrow
+
+  - pip
+  - python=3.7
+  - python-graphviz
+
+  - nb_conda_kernels
+
+  - matplotlib
