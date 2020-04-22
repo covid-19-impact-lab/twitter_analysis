@@ -6,6 +6,8 @@ channels:
 
 dependencies:
   - dask
+  - descartes
+  - geopandas
   - ipykernel
   - ipython
   - ipywidgets
