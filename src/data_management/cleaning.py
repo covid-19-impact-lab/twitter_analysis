@@ -11,7 +11,7 @@ UNNECESSARY_COLUMNS = ["formatted_date", "geo"]
 
 
 def load_data():
-    paths = list(Path(ppj("IN_DATA", "corona_data")).glob("**/*.parquet"))
+    paths = list(Path(ppj("IN_DATA", "corona_data")).glob("2020*/**/*.parquet"))
 
     dfs = []
     for path in paths:

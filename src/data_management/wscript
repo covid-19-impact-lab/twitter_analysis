@@ -9,7 +9,7 @@ def build(ctx):
         source="cleaning.py",
         deps=[
             ctx.path_to(ctx, "IN_DATA", path.relative_to(ctx.path_to(ctx, "IN_DATA")))
-            for path in Path("../original_data/corona_data").glob("**/*.parquet")
+            for path in Path("../original_data/corona_data").glob("2020*/**/*.parquet")
         ],
         target=[
             ctx.path_to(ctx, "OUT_DATA", "tweets-cleaned", f"{stamp}.parquet")

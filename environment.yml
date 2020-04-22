@@ -38,6 +38,7 @@ dependencies:
   - google-cloud-language
   - requests
 
+  - awscli
   - git
   - gitpython
 
