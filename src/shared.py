@@ -5,7 +5,7 @@ import pandas as pd
 
 TIMESTAMPS = [
     date.strftime("%Y-%m-%d")
-    for date in pd.date_range(start="2020-03-10", end="2020-04-04")
+    for date in pd.date_range(start="2020-03-10", end="2020-04-14")
 ]
 
 
